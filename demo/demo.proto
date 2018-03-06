@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+package demo;
+
+service Executer {
+	// just say hello
+	rpc Hello(HelloRequest) returns (HelloReply) {}
+
+	// excute command
+	rpc ExecuteCMD(Command) returns (Output) {}
+}
+
+message HelloRequest {
+	string name = 1;
+}
+
+message HelloReply {
+	string message = 1;
+}
+
+message Command {
+	string command = 1;
+	string path = 2;
+	string user = 3;
+}
+
+message Output {
+	string output = 1;
+}
